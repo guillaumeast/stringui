@@ -4,7 +4,7 @@ CXXFLAGS 	:= -std=c++17 -Wall -Wextra -pedantic -Iinclude -I/opt/homebrew/includ
 LDFLAGS  	:= -L/opt/homebrew/lib -lunistring
 
 BUILD_DIR 	:= bin
-TARGET 		:= str
+TARGET 		:= unistring
 OUTPUT    	:= $(BUILD_DIR)/$(TARGET)
 SRC    		:= $(wildcard src/*.cpp)
 

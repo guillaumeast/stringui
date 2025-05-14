@@ -7,7 +7,7 @@
 [![Status: v1.0.0](https://img.shields.io/badge/status-v1.0.0-brightgreen)](https://github.com/guillaumeast/unistring/releases/tag/v1.0.0)
 
 
-> 🧠 **`str`** is a `terminal`‑friendly, `Unicode`‑ & `ANSI`‑aware **string manipulation CLI** — minimal like `cut` or `sed`, but powered by modern **C++17**, `escape`‑safe, and fully `UTF‑8`‑capable (including wide & combined emojis).
+> 🧠 **`unistring` ** is a `terminal`‑friendly, `Unicode`‑ & `ANSI`‑aware **string manipulation CLI** — minimal like `cut` or `sed`, but powered by modern **C++17**, `escape`‑safe, and fully `UTF‑8`‑capable (including wide & combined emojis).
 
 ---
 
@@ -28,12 +28,12 @@
 
 | Command                                       | Description                                                                 |
 |-----------------------------------------------|-----------------------------------------------------------------------------|
-| `str width  <string>`                         | Display *visual* width (columns) of `string`                                |
-| `str height <string>`                         | Display number of *lines* (`\n` count + 1)                                 |
-| `str clean  <string>`                         | Strip all ANSI *escape sequences*                                           |
-| `str split  <string> <sep>`                   | Split `string` on `sep`, output one part per line                           |
-| `str repeat <count> <string> [sep]`           | Repeat `string` `count` times with optional `sep` between                   |
-| `str count  <value> in <string>`              | Count occurrences of `value` inside `string`                                |
+| `unistring width  <string>`                         | Display *visual* width (columns) of `string`                                |
+| `unistring height <string>`                         | Display number of *lines* (`\n` count + 1)                                 |
+| `unistring clean  <string>`                         | Strip all ANSI *escape sequences*                                           |
+| `unistring split  <string> <sep>`                   | Split `string` on `sep`, output one part per line                           |
+| `unistring repeat <count> <string> [sep]`           | Repeat `string` `count` times with optional `sep` between                   |
+| `unistring count  <value> in <string>`              | Count occurrences of `value` inside `string`                                |
 
 > **Display width** is measured in *columns* for terminals that use fixed‑width fonts.
 > Some characters (e.g. Indic scripts) or emulators may render differently.
@@ -43,63 +43,63 @@
 ## 🛠️ Build & Install
 
 ```sh
-make            # compile to bin/str
-make install    # copy binary to ~/.local/bin/str
+make            # compile to bin/unistring
+make install    # copy binary to ~/.local/bin/unistring
 make uninstall  # remove binary from ~/.local/bin
 ```
 
-The binary will be available as `str` anywhere in your shell, provided `~/.local/bin` is in your `$PATH`.
+The binary will be available as `unistring`  anywhere in your shell, provided `~/.local/bin` is in your `$PATH`.
 
 ---
 
 ## 🧪 Examples
 
 <details>
-<summary>str width / height</summary>
+<summary>unistring width / height</summary>
 
 ```bash
 red="[31m"
 reset="[0m"
 
-str width  "1🛑4"               # → 4
-str height "a
+unistring width  "1🛑4"               # → 4
+unistring height "a
 b
 c"            # → 3
-str width  "${red}1${reset}🛑4" # → 4 (ignores escapes)
+unistring width  "${red}1${reset}🛑4" # → 4 (ignores escapes)
 ```
 </details>
 
 <details>
-<summary>str clean</summary>
+<summary>unistring clean</summary>
 
 ```bash
-str clean "${red}Red${reset}"   # → "Red"
+unistring clean "${red}Red${reset}"   # → "Red"
 ```
 </details>
 
 <details>
-<summary>str split</summary>
+<summary>unistring split</summary>
 
 ```bash
-str split "a-b-c" "-"           # → "a
+unistring split "a-b-c" "-"           # → "a
 b
 c"
 ```
 </details>
 
 <details>
-<summary>str repeat</summary>
+<summary>unistring repeat</summary>
 
 ```bash
-str repeat 3 "foo" "-"          # → "foo-foo-foo"
+unistring repeat 3 "foo" "-"          # → "foo-foo-foo"
 ```
 </details>
 
 <details>
-<summary>str count</summary>
+<summary>unistring count</summary>
 
 ```bash
-str count "-" in "a-b-c-d-"     # → 4
+unistring count "-" in "a-b-c-d-"     # → 4
 ```
 </details>
 
@@ -108,7 +108,7 @@ str count "-" in "a-b-c-d-"     # → 4
 ## 📁 Project structure
 
 ```
-str/
+unistring/
 ├── include/
 │   ├── UniString.hpp
 │   └── types.hpp
