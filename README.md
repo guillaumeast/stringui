@@ -1,10 +1,11 @@
-# 🚀 str
+# 🔠 **`unistring` v1.0.0** – stable and minimal Unicode-aware ANSI-aware string CLI
 
 [![C++](https://img.shields.io/badge/language-C%2B%2B17-blue)](https://en.cppreference.com/)
 [![Build](https://img.shields.io/badge/build-clang%2B%2B-orange)](https://clang.llvm.org/)
 [![Terminal CLI](https://img.shields.io/badge/type-CLI-lightgrey)](https://en.wikipedia.org/wiki/Command-line_interface)
 [![Platform: Unix](https://img.shields.io/badge/platform-Unix-darkgreen)](https://en.wikipedia.org/wiki/Unix)
-[![Status: v0.3](https://img.shields.io/badge/status-v0.3-green)](https://github.com/guillaumeast/str/releases/tag/v0.3)
+[![Status: v1.0.0](https://img.shields.io/badge/status-v1.0.0-brightgreen)](https://github.com/guillaumeast/unistring/releases/tag/v1.0.0)
+
 
 > 🧠 **`str`** is a `terminal`‑friendly, `Unicode`‑ & `ANSI`‑aware **string manipulation CLI** — minimal like `cut` or `sed`, but powered by modern **C++17**, `escape`‑safe, and fully `UTF‑8`‑capable (including wide & combined emojis).
 
