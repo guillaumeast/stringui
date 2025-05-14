@@ -1,0 +1,12 @@
+# Core
+.DS_Store
+.vscode/
+
+# Prompt and codebase files for LLMs
+ai/
+
+# Binary
+build/
+
+# TMP
+tmp*/
