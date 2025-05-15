@@ -87,48 +87,58 @@ make install-cli
 
 ## 🧪 Examples
 
+
 <details>
-<summary>Width / Height</summary>
-
+    <summary>stringui width</summary>
+    
 ```bash
-red="\033[31m"; reset="\033[0m"
+red="$(printf "\033[31m")"                        # ANSI escape code for red
+reset="$(printf "\033[0m")"                       # ANSI escape code to reset colors
 
-stringui width  "1🛑4"                # 4
-stringui height "a\nb\nc"           # 3
-stringui width  "${red}1${reset}🛑4"  # 4 (escapes ignored)
+stringui width "1234"                             # output → "4"
+stringui width "1🛑4"                             # output → "4"
+stringui width "$(printf "${red}1${reset}🛑4")"   # output → "4"
 ```
+
 </details>
 
 <details>
-<summary>Clean</summary>
-
-```bash
-stringui clean "${red}Red${reset}"    # "Red"
+    <summary>stringui height</summary>
+    
+```sh
+stringui height "$(printf "1\n2\n3")"             # output → "3"
 ```
+
 </details>
 
 <details>
-<summary>Split</summary>
+    <summary>stringui clean</summary>
+    
+```sh
+red="$(printf "\033[31m")"                   # ANSI escape code for red
+reset="$(printf "\033[0m")"                  # ANSI escape code to reset colors
 
-```bash
-stringui split "a-b-c" "-"            # "a\nb\nc"
+stringui clean "$(printf "${red}Red${reset}")"   # output → "Red"
 ```
+
 </details>
 
 <details>
-<summary>Repeat</summary>
-
-```bash
-stringui repeat 3 "foo" "-"           # "foo-foo-foo"
+    <summary>stringui split</summary>
+    
+```sh
+stringui split "a-b-c" "-"            # output → "a\nb\nc"
 ```
+
 </details>
 
 <details>
-<summary>Count</summary>
-
-```bash
-stringui count "-" in "a-b-c-d-"      # 4
+    <summary>stringui repeat</summary>
+    
+```sh
+stringui repeat 3 "foo" "-"           # output → "foo-foo-foo"
 ```
+
 </details>
 
 ---
