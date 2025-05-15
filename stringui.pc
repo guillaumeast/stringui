@@ -6,5 +6,5 @@ includedir=${prefix}/include
 Name: stringui
 Description: Unicode-aware string manipulation library
 Version: 1.0.0
-Libs: -L${libdir} -lstringui -lgrapheme
+Libs: -L${libdir} -lstringui -lunistring
 Cflags: -I${includedir}
