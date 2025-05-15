@@ -40,6 +40,8 @@
 
 ## 🛠️ Build & Install
 
+Clone this repo then run:
+
 ```bash
 # compile library + CLI
 make
@@ -51,10 +53,10 @@ sudo make install-lib
 make install-cli
 
 # everything in one shot
-sudo make install-all
+sudo make install
 ```
 
-Ensure `~/.local/bin` is in your `$PATH` to run `stringui` everywhere.
+> ⚠️ Ensure `~/.local/bin` is in your `$PATH` to run `stringui` everywhere.
 
 ---
 
