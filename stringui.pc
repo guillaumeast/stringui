@@ -1,0 +1,10 @@
+prefix=/usr/local
+exec_prefix=${prefix}
+libdir=${exec_prefix}/lib
+includedir=${prefix}/include
+
+Name: stringui
+Description: Unicode-aware string manipulation library
+Version: 1.0.0
+Libs: -L${libdir} -lstringui -lgrapheme
+Cflags: -I${includedir}

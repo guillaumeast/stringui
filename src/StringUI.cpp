@@ -1,4 +1,4 @@
-#include "UniString.hpp"
+#include "StringUI.hpp"
 
 // libunistring lib → unicode-aware width
 #include <unistr.h>
@@ -9,16 +9,16 @@ static size_t _get_width(const string &input);
 
 // --- CONSTRUCTOR ---
 
-UniString::UniString(const std::string &input)
+StringUI::StringUI(const std::string &input)
     : raw(input),
       visible(_clean(input)),
       width(_get_width(visible)),
-      height(UniString::count("\n", raw) + 1)
+      height(StringUI::count("\n", raw) + 1)
 {}
 
 // --- PUBLIC ---
 
-size_t UniString::count(const string& value, const string& str)
+size_t StringUI::count(const string& value, const string& str)
 {
     if (value.empty()) return 0;
 
@@ -32,7 +32,7 @@ size_t UniString::count(const string& value, const string& str)
     return count;
 }
 
-string UniString::join(const vector<string> &strings, const string &separator)
+string StringUI::join(const vector<string> &strings, const string &separator)
 {
     if (strings.empty()) return "";
 
@@ -45,7 +45,7 @@ string UniString::join(const vector<string> &strings, const string &separator)
     return result;
 }
 
-string UniString::join(const vector<UniString> &unistrings, const string &separator)
+string StringUI::join(const vector<StringUI> &unistrings, const string &separator)
 {
     if (unistrings.empty()) return "";
 
@@ -58,7 +58,7 @@ string UniString::join(const vector<UniString> &unistrings, const string &separa
     return result;
 }
 
-vector<string> UniString::split(const string &str, const string &separator)
+vector<string> StringUI::split(const string &str, const string &separator)
 {
     vector<string> result;
     size_t separator_length = separator.length();
@@ -76,7 +76,7 @@ vector<string> UniString::split(const string &str, const string &separator)
     return result;
 }
 
-string UniString::repeat(const size_t count, const string &str, const string &separator)
+string StringUI::repeat(const size_t count, const string &str, const string &separator)
 {
     if (count == 0) return "";
 

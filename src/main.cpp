@@ -1,7 +1,7 @@
 #include <string>
 #include <iostream>
 #include <cstdlib>      // std::atoi
-#include "UniString.hpp"
+#include "StringUI.hpp"
 
 int main(int argc, char* argv[])
 {
@@ -14,15 +14,15 @@ int main(int argc, char* argv[])
     const string command = argv[1];
     if (command == "width")
     {
-        std::cout << UniString(argv[2]).width << "\n";
+        std::cout << StringUI(argv[2]).width << "\n";
     }
     else if (command == "height")
     {
-        std::cout << UniString(argv[2]).height << "\n";
+        std::cout << StringUI(argv[2]).height << "\n";
     }
     else if (command == "clean")
     {
-        std::cout << UniString(argv[2]).visible << "\n";
+        std::cout << StringUI(argv[2]).visible << "\n";
     }
     else if (command == "split")
     {
@@ -35,7 +35,7 @@ int main(int argc, char* argv[])
         string str = argv[2];
         string separator = argv[3];
 
-        vector<string> parts = UniString::split(str, separator);
+        vector<string> parts = StringUI::split(str, separator);
         for (const auto& part : parts) {
             std::cout << part << "\n";
         }
@@ -52,7 +52,7 @@ int main(int argc, char* argv[])
         string str = argv[3];
         string separator = (argc >= 5) ? argv[4] : "";
 
-        std::cout << UniString::repeat(count, str, separator) << "\n";
+        std::cout << StringUI::repeat(count, str, separator) << "\n";
     }
     else if (command == "count")
     {
@@ -65,7 +65,7 @@ int main(int argc, char* argv[])
         string value = argv[2];
         string str = argv[4];
 
-        std::cout << UniString::count(value, str) << "\n";
+        std::cout << StringUI::count(value, str) << "\n";
     }
     else
     {

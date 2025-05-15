@@ -1,8 +1,14 @@
 #pragma once
 
-#include "types.hpp"
+#include <string>
+#include <vector>
+#include <optional>
 
-class UniString {
+using string = std::string;
+template<typename T> using vector = std::vector<T>;
+template<typename T> using opt = std::optional<T>;
+
+class StringUI {
 public:
     string raw = "";
     string visible = "";
@@ -11,15 +17,15 @@ public:
 
     // --- CONSTRUCTORS ---
 
-    UniString() = default;
-    UniString(const string &input);
+    StringUI() = default;
+    StringUI(const string &input);
 
     // --- METHODS ---
 
     static size_t count(const string& value, const string& str);
     static string repeat(const size_t count, const string &str, const string &separator = "");
     static string join(const vector<string> &strings, const string &separator = "");
-    static string join(const vector<UniString> &texts, const string &separator = "");
+    static string join(const vector<StringUI> &texts, const string &separator = "");
     static vector<string> split(const string &str, const string &separator);
 };
 
