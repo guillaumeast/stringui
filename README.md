@@ -48,20 +48,40 @@
 Clone this repo then run:
 
 ```bash
-# compile library + CLI
+# compile
 make
 
-# install library + headers + pkg‑config
-sudo make install-lib
-
-# install CLI binary in ~/.local/bin
-make install-cli
-
-# everything in one shot
+# install library + headers + pkg‑config and CLI binary in ~/.local/bin
 sudo make install
 ```
 
 > ⚠️ Ensure `~/.local/bin` is in your `$PATH` to run `stringui` everywhere.
+
+<details>
+  <summary>Install only stringui lib</summary>
+
+```bash
+# compile
+make
+
+# install library + headers + pkg‑config
+sudo make install-lib
+```
+
+</details>
+
+<details>
+  <summary>Install only stringui cli</summary>
+
+```bash
+# compile
+make
+
+# install CLI binary in ~/.local/bin
+make install-cli
+```
+
+</details>
 
 ---
 
