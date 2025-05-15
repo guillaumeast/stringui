@@ -34,7 +34,12 @@
 | `stringui repeat <count> <string> [sep]`   | Repeat `string` `count` times with optional `sep`      |
 | `stringui count  <value> in <string>`      | Count occurrences of `value` inside `string`           |
 
-> *Display width* is measured in columns for fixed‑width terminal fonts.
+> `Display width` is measured in `columns`, of `characters` or `strings`, when output to a device that uses `non-proportional fonts`.
+
+> Note that for some rarely used characters the actual `fonts` or `terminal emulators` can use a different `width`. There is no mechanism for communicating the `display width` of `characters` across a Unix pseudo-terminal (`tty`).
+> Also, there are scripts with complex rendering, like the `Indic` scripts. For these scripts, there is no such concept as `non-proportional fonts`. Therefore the results of these functions usually work fine on most scripts and on most `characters` but can fail to represent the actual `display width`.
+
+> 📚 See [libunistring documentation – Display width <uniwidth.h>](https://www.gnu.org/software/libunistring/manual/libunistring.html#uniwidth_002eh) for details on how display width is computed.
 
 ---
 
