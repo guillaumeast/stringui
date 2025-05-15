@@ -1,13 +1,12 @@
-# 🔠 **`unistring` v1.0.0** – stable and minimal Unicode-aware ANSI-aware string CLI
+# 🎨 **`stringui` v1.0.0** – minimal Unicode‑ & ANSI‑aware string CLI
 
 [![C++](https://img.shields.io/badge/language-C%2B%2B17-blue)](https://en.cppreference.com/)
 [![Build](https://img.shields.io/badge/build-clang%2B%2B-orange)](https://clang.llvm.org/)
 [![Terminal CLI](https://img.shields.io/badge/type-CLI-lightgrey)](https://en.wikipedia.org/wiki/Command-line_interface)
 [![Platform: Unix](https://img.shields.io/badge/platform-Unix-darkgreen)](https://en.wikipedia.org/wiki/Unix)
-[![Status: v1.0.0](https://img.shields.io/badge/status-v1.0.0-brightgreen)](https://github.com/guillaumeast/unistring/releases/tag/v1.0.0)
+[![Status: v1.0.0](https://img.shields.io/badge/status-v1.0.0-brightgreen)](https://github.com/guillaumeast/stringui/releases/tag/v1.0.0)
 
-
-> 🧠 **`unistring` ** is a `terminal`‑friendly, `Unicode`‑ & `ANSI`‑aware **string manipulation CLI** — minimal like `cut` or `sed`, but powered by modern **C++17**, `escape`‑safe, and fully `UTF‑8`‑capable (including wide & combined emojis).
+> **`stringui`** is a terminal‑friendly, Unicode‑ & ANSI‑aware **string manipulation CLI** — tiny like `cut` or `sed`, but powered by modern **C++17**, escape‑safe, and fully **UTF‑8‑capable** (incl. wide & combined emojis).
 
 ---
 
@@ -26,80 +25,82 @@
 
 ## 🚀 Available commands
 
-| Command                                       | Description                                                                 |
-|-----------------------------------------------|-----------------------------------------------------------------------------|
-| `unistring width  <string>`                         | Display *visual* width (columns) of `string`                                |
-| `unistring height <string>`                         | Display number of *lines* (`\n` count + 1)                                 |
-| `unistring clean  <string>`                         | Strip all ANSI *escape sequences*                                           |
-| `unistring split  <string> <sep>`                   | Split `string` on `sep`, output one part per line                           |
-| `unistring repeat <count> <string> [sep]`           | Repeat `string` `count` times with optional `sep` between                   |
-| `unistring count  <value> in <string>`              | Count occurrences of `value` inside `string`                                |
+| Command                                    | Description                                             |
+|--------------------------------------------|---------------------------------------------------------|
+| `stringui width  <string>`                 | Display *visual* width (columns) of `string`           |
+| `stringui height <string>`                 | Display number of *lines* (`\n` count + 1)            |
+| `stringui clean  <string>`                 | Strip all ANSI *escape sequences*                      |
+| `stringui split  <string> <sep>`           | Split `string` on `sep`, output one part per line      |
+| `stringui repeat <count> <string> [sep]`   | Repeat `string` `count` times with optional `sep`      |
+| `stringui count  <value> in <string>`      | Count occurrences of `value` inside `string`           |
 
-> **Display width** is measured in *columns* for terminals that use fixed‑width fonts.
-> Some characters (e.g. Indic scripts) or emulators may render differently.
+> *Display width* is measured in columns for fixed‑width terminal fonts.
 
 ---
 
 ## 🛠️ Build & Install
 
-```sh
-make            # compile to bin/unistring
-make install    # copy binary to ~/.local/bin/unistring
-make uninstall  # remove binary from ~/.local/bin
+```bash
+# compile library + CLI
+make
+
+# install library + headers + pkg‑config
+sudo make install-lib
+
+# install CLI binary in ~/.local/bin
+make install-cli
+
+# everything in one shot
+sudo make install-all
 ```
 
-The binary will be available as `unistring`  anywhere in your shell, provided `~/.local/bin` is in your `$PATH`.
+Ensure `~/.local/bin` is in your `$PATH` to run `stringui` everywhere.
 
 ---
 
 ## 🧪 Examples
 
 <details>
-<summary>unistring width / height</summary>
+<summary>Width / Height</summary>
 
 ```bash
-red="[31m"
-reset="[0m"
+red="\033[31m"; reset="\033[0m"
 
-unistring width  "1🛑4"               # → 4
-unistring height "a
-b
-c"            # → 3
-unistring width  "${red}1${reset}🛑4" # → 4 (ignores escapes)
+stringui width  "1🛑4"                # 4
+stringui height "a\nb\nc"           # 3
+stringui width  "${red}1${reset}🛑4"  # 4 (escapes ignored)
 ```
 </details>
 
 <details>
-<summary>unistring clean</summary>
+<summary>Clean</summary>
 
 ```bash
-unistring clean "${red}Red${reset}"   # → "Red"
+stringui clean "${red}Red${reset}"    # "Red"
 ```
 </details>
 
 <details>
-<summary>unistring split</summary>
+<summary>Split</summary>
 
 ```bash
-unistring split "a-b-c" "-"           # → "a
-b
-c"
+stringui split "a-b-c" "-"            # "a\nb\nc"
 ```
 </details>
 
 <details>
-<summary>unistring repeat</summary>
+<summary>Repeat</summary>
 
 ```bash
-unistring repeat 3 "foo" "-"          # → "foo-foo-foo"
+stringui repeat 3 "foo" "-"           # "foo-foo-foo"
 ```
 </details>
 
 <details>
-<summary>unistring count</summary>
+<summary>Count</summary>
 
 ```bash
-unistring count "-" in "a-b-c-d-"     # → 4
+stringui count "-" in "a-b-c-d-"      # 4
 ```
 </details>
 
@@ -108,15 +109,13 @@ unistring count "-" in "a-b-c-d-"     # → 4
 ## 📁 Project structure
 
 ```
-unistring/
+stringui/
 ├── include/
-│   ├── UniString.hpp
-│   └── types.hpp
+│   └── StringUI.hpp
 ├── src/
-│   ├── UniString.cpp
+│   ├── StringUI.cpp
 │   └── main.cpp
-├── tests/
-├── bin/              # build output (ignored)
+├── build/            # autogenerated
 ├── Makefile
 └── README.md
 ```
@@ -125,11 +124,11 @@ unistring/
 
 ## 📦 Dependencies
 
-- [`libunistring`](https://www.gnu.org/software/libunistring/) ≥ 1.1
-- Any **C++17** compiler (`clang++`, `g++`, ...)
+- [`libunistring`](https://www.gnu.org/software/libunistring/) ≥ 1.1
+- Any **C++17** compiler (`clang++`, `g++`, …)
 
 ---
 
-## 🧑 Author
+## 👤 Author
 
-Made with ❤️ by [@guillaumeast](https://github.com/guillaumeast)
+Made with ❤️ by [@guillaumeast](https://github.com/guillaumeast)
